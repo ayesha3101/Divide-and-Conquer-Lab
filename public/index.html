@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Step-by-step visualiser for Karatsuba multiplication and the closest pair of points.">
+<title>Divide &amp; Conquer Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+  <a class="brand" id="home" href="#" aria-label="Home"><svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#3B4BDB"/><path d="M24 7v34" stroke="#fff" stroke-opacity=".45" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"/><circle cx="16" cy="21" r="5.5" fill="#fff"/><circle cx="32" cy="21" r="5.5" fill="#fff"/><circle cx="17" cy="22" r="2.4" fill="#17202E"/><circle cx="31" cy="22" r="2.4" fill="#17202E"/><path d="M18 32q6 5.5 12 0" stroke="#F2A33A" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="12" cy="13" r="1.6" fill="#fff" fill-opacity=".6"/><circle cx="37" cy="12" r="1.6" fill="#fff" fill-opacity=".6"/></svg><h1>Divide &amp; Conquer Lab</h1></a><div class="sp"></div>
+  <div class="file" id="fileBar"><span>File: <b id="fname"></b></span><button class="btn" id="again">Open another file</button></div>
+</header>
+<main>
+<section id="start">
+  <div class="hero"><svg class="logo big" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#3B4BDB"/><path d="M24 7v34" stroke="#fff" stroke-opacity=".45" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"/><circle cx="16" cy="21" r="5.5" fill="#fff"/><circle cx="32" cy="21" r="5.5" fill="#fff"/><circle cx="17" cy="22" r="2.4" fill="#17202E"/><circle cx="31" cy="22" r="2.4" fill="#17202E"/><path d="M18 32q6 5.5 12 0" stroke="#F2A33A" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="12" cy="13" r="1.6" fill="#fff" fill-opacity=".6"/><circle cx="37" cy="12" r="1.6" fill="#fff" fill-opacity=".6"/></svg>
+  <h2>Watch big problems split into small ones</h2>
+  <p>Divide and conquer cuts a problem in half, solves each half, then combines the answers. Pick an algorithm, open a file, and step through every move.</p></div>
+  <div class="opts">
+  <article class="opt im" data-k="im"><div class="ill"><svg viewBox="0 0 220 110" aria-hidden="true"><rect x="70" y="8" width="80" height="26" rx="8" fill="#3B4BDB"/><text x="110" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#fff" font-family="Fira Code,monospace">x · y</text><g stroke="#AEB8F0" stroke-width="2" fill="none"><path d="M110 34v10M34 44h146M34 44v14M104 44h6M104 44v14M180 44v14"/></g><g fill="#E6E9FC" stroke="#3B4BDB" stroke-width="1.5"><rect x="8" y="58" width="52" height="22" rx="7"/><rect x="78" y="58" width="52" height="22" rx="7"/><rect x="146" y="58" width="68" height="22" rx="7"/></g><g font-size="11" fill="#2B38B0" text-anchor="middle" font-family="Fira Code,monospace"><text x="34" y="73">ac</text><text x="104" y="73">bd</text><text x="180" y="73" font-size="10">(a+b)(c+d)</text></g><text x="110" y="102" text-anchor="middle" font-size="11" fill="#5B6678" font-family="Schibsted Grotesk,sans-serif">3 smaller products, not 4</text></svg></div><h3>Multiply huge numbers</h3><p>Karatsuba multiplication of two numbers with hundreds of digits.</p>
+<div class="act"><button class="btn pri pick">Choose file</button><select class="smp" aria-label="Try a sample for Multiply huge numbers"><option value="">Try a sample</option></select></div>
+<small>Needs a .txt file with two numbers, one per line.</small></article>
+  <article class="opt cp" data-k="cp"><div class="ill"><svg viewBox="0 0 220 110" aria-hidden="true"><path d="M110 6v78" stroke="#17202E" stroke-width="1.5" stroke-dasharray="5 5"/><g fill="#12907F"><circle cx="30" cy="22" r="4"/><circle cx="58" cy="60" r="4"/><circle cx="80" cy="30" r="4"/><circle cx="44" cy="78" r="4"/><circle cx="96" cy="68" r="4"/></g><g fill="#3B4BDB"><circle cx="140" cy="20" r="4"/><circle cx="176" cy="52" r="4"/><circle cx="196" cy="24" r="4"/><circle cx="158" cy="76" r="4"/></g><path d="M96 68L124 56" stroke="#E5484D" stroke-width="2.5"/><circle cx="96" cy="68" r="5.5" fill="#E5484D"/><circle cx="124" cy="56" r="5.5" fill="#E5484D"/><text x="110" y="102" text-anchor="middle" font-size="11" fill="#5B6678" font-family="Schibsted Grotesk,sans-serif">split, solve each side, check the middle</text></svg></div><h3>Find the closest points</h3><p>Locate the two nearest points among thousands.</p>
+<div class="act"><button class="btn pri pick">Choose file</button><select class="smp" aria-label="Try a sample for Find the closest points"><option value="">Try a sample</option></select></div>
+<small>Needs a .txt file: the point count, then one “x y” pair per line.</small></article>
+  </div>
+  <div id="err" role="alert"></div>
+  <p class="drophint">You can also drop a file onto a card.</p>
+  <input type="file" id="fin" accept=".txt,text/plain" hidden>
+</section>
+
+<section id="work">
+  <div class="title"><h2 id="wt"></h2><p id="ws"></p></div>
+  <div class="grid">
+    <div class="card">
+      <div id="stage"></div>
+      <div class="leg" id="leg"></div>
+      <div class="bar">
+        <button class="ic" id="first" title="Restart" aria-label="Restart"><svg viewBox="0 0 16 16"><path d="M3 2h2v12H3zM13 2v12L6 8z"/></svg></button>
+        <button class="ic" id="prev" title="Previous step" aria-label="Previous step"><svg viewBox="0 0 16 16"><path d="M12 2v12L4 8z"/></svg></button>
+        <button class="ic play" id="play" title="Play / pause" aria-label="Play"><svg viewBox="0 0 16 16" id="pi"><path d="M4 2l10 6-10 6z"/></svg></button>
+        <button class="ic" id="next" title="Next step" aria-label="Next step"><svg viewBox="0 0 16 16"><path d="M4 2v12l8-6z"/></svg></button>
+        <button class="ic" id="last" title="Skip to result" aria-label="Skip to result"><svg viewBox="0 0 16 16"><path d="M11 2h2v12h-2zM3 2l7 6-7 6z"/></svg></button>
+        <input type="range" id="scrub" min="0" value="0" aria-label="Step">
+        <span class="cnt" id="cnt"></span>
+        <label class="spd">Speed <input type="range" id="speed" min="1" max="100" value="55"></label>
+      </div>
+    </div>
+    <aside>
+      <div class="card"><h3>Current step</h3><div id="step"></div></div>
+      <div class="card"><h3>Result</h3><dl class="stats" id="stats"></dl><div id="prodBox"></div></div>
+    </aside>
+  </div>
+</section>
+</main>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
