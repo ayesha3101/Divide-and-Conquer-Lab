@@ -1,4 +1,3 @@
-"""Local development server: API + front end on http://localhost:5000"""
 from pathlib import Path
 
 from dclab.web import create_app
