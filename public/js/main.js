@@ -12,11 +12,16 @@ function showError(message) {
   show('err');
 }
 
-function goHome(e) {
-  e?.preventDefault();
+function showHome() {
   player.unload(); view = null;
   show('work', false); show('fileBar', false); show('start'); show('err', false);
   $('fin').value = '';
+}
+
+function goHome(e) {
+  e?.preventDefault();
+  if (history.state?.view === 'work') history.back(); // keeps browser history in sync
+  else showHome();
 }
 
 async function openFile({ file, want }) {
@@ -37,6 +42,7 @@ async function openFile({ file, want }) {
 
     view = mount($('stage'), $('step'), solved);
     player.load(solved.steps.length);
+    history[history.state?.view === 'work' ? 'replaceState' : 'pushState']({ view: 'work' }, '');
   } catch (e) {
     showError(e.message);
   } finally {
@@ -46,4 +52,5 @@ async function openFile({ file, want }) {
 
 $('again').onclick = $('home').onclick = goHome;
 addEventListener('resize', () => view?.resize());
+addEventListener('popstate', showHome);
 initHome({ onFile: openFile });
