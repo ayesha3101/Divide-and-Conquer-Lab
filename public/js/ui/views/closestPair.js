@@ -14,10 +14,10 @@ export function hydrate(r) {
 export const meta = (s) => ({
   title: 'Closest pair of points',
   subtitle: `${fmt(s.n)} points`,
-  legend: [['Left half', COLOR.left], ['Right half', COLOR.right], ['Strip near the dividing line', COLOR.strip], ['Closest pair', COLOR.best]],
+  legend: [['Left half', COLOR.left], ['Right half', COLOR.right], ['Strip', COLOR.strip], ['Closest pair', COLOR.best]],
+  ok: s.ok,
   stats: [
-    ['Distance', s.best.d.toFixed(4)],
-    ['Correct', s.ok ? '✓ Verified' : '✗ Mismatch', s.ok ? 'ok' : ''],
+    ['Distance', s.best.d.toFixed(4), 'w big'],
     ['Pair', `<span class="mono">(${s.best.pair[0].join(', ')})<br>(${s.best.pair[1].join(', ')})</span>`, 'w'],
     ['Time', `${s.time.toFixed(2)} ms`],
     ['Recursive calls', fmt(s.calls)],

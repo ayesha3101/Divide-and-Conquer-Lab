@@ -91,3 +91,20 @@ aside h3{margin:0 0 8px;font-size:15px}
 .leg{display:flex;gap:16px;font-size:13px;color:var(--mute);margin-top:6px;flex-wrap:wrap}
 .leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---- UX refinements ---- */
+.title{align-items:center;gap:14px}
+.title .back{padding:6px 12px;font-size:14px}
+.title p{flex:1}
+.fname{font:13px var(--mono);color:var(--mute);background:#E3E8F1;border-radius:999px;padding:3px 12px;max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge{display:inline-block;margin-left:8px;border-radius:999px;padding:1px 10px;font-size:13px;font-weight:500;vertical-align:1px}
+.badge.good{background:#DDF3EF;color:#0B6B5E}.badge.bad{background:#FBE0E1;color:#A3262B}
+.stats .big dd{font-size:28px;letter-spacing:-.01em}
+.opt{padding:20px}.opt .ill{margin-bottom:14px}.opt p{margin-bottom:14px}
+.opt small{margin-top:10px}
+.smp{border-style:dashed;background:transparent;color:var(--mute)}.smp:hover{border-color:var(--ind);color:var(--ind)}
+.hero{margin-bottom:28px}.hero p{font-size:16px}
+.busy,.busy *{cursor:progress!important}.busy .opt{opacity:.55;pointer-events:none}
+.bar{gap:10px}.cnt{min-width:96px}
+.spd input{width:90px}
+@media(max-width:640px){.fname{display:none}.title p{display:none}}
