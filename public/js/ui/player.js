@@ -13,7 +13,6 @@ export class Player {
     $('play').onclick = () => this.toggle();
     $('next').onclick = () => this.step(1);
     $('prev').onclick = () => this.step(-1);
-    $('first').onclick = () => this.seek(0);
     $('last').onclick = () => this.seek(this.#n - 1);
     $('scrub').oninput = (e) => this.seek(+e.target.value);
     addEventListener('keydown', (e) => {
@@ -44,7 +43,7 @@ export class Player {
     const last = this.#i === this.#n - 1;
     $('scrub').value = this.#i;
     $('cnt').textContent = `Step ${this.#i + 1} / ${this.#n}`;
-    $('prev').disabled = $('first').disabled = this.#i === 0;
+    $('prev').disabled = this.#i === 0;
     $('next').disabled = $('last').disabled = last;
     this.onChange(this.#i);
     if (last) this.pause();

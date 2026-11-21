@@ -14,7 +14,7 @@ function showError(message) {
 
 function showHome() {
   player.unload(); view = null;
-  show('work', false); show('fileBar', false); show('start'); show('err', false);
+  show('work', false); show('start'); show('err', false);
   $('fin').value = '';
 }
 
@@ -31,7 +31,7 @@ async function openFile({ file, want }) {
     const { hydrate, meta, mount, extra } = VIEWS[raw.key];
     const solved = hydrate(raw), m = meta(solved);
 
-    show('err', false); show('start', false); show('work'); show('fileBar', true, 'flex');
+        show('err', false); show('start', false); show('work');
     $('fname').textContent = file.name;
     $('wt').textContent = m.title;
     $('ws').textContent = m.subtitle;
