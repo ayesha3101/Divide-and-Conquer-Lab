@@ -1,4 +1,5 @@
 {
+  "framework": null,
   "outputDirectory": "public",
   "functions": { "api/solve.py": { "maxDuration": 30, "includeFiles": "dclab/**" } }
 }
