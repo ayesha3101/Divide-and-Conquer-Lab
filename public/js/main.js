@@ -53,4 +53,4 @@ async function openFile({ file, want }) {
 $('again').onclick = $('home').onclick = goHome;
 addEventListener('resize', () => view?.resize());
 addEventListener('popstate', showHome);
-initHome({ onFile: openFile });
+initHome({ onFile: openFile, onError: showError });

@@ -1,0 +1,23 @@
+/** Bundled sample inputs (files live in public/samples/). */
+export const SAMPLES = [
+  { key: 'cp', file: 'cp/input_01_n110.txt', label: '110 points' },
+  { key: 'cp', file: 'cp/input_02_n200.txt', label: '200 points' },
+  { key: 'cp', file: 'cp/input_03_n350.txt', label: '350 points' },
+  { key: 'cp', file: 'cp/input_04_n500.txt', label: '500 points' },
+  { key: 'cp', file: 'cp/input_05_n800.txt', label: '800 points' },
+  { key: 'cp', file: 'cp/input_06_n1000.txt', label: '1,000 points' },
+  { key: 'cp', file: 'cp/input_07_n2000.txt', label: '2,000 points' },
+  { key: 'cp', file: 'cp/input_08_n3500.txt', label: '3,500 points' },
+  { key: 'cp', file: 'cp/input_09_n5000.txt', label: '5,000 points' },
+  { key: 'cp', file: 'cp/input_10_n10000.txt', label: '10,000 points' },
+  { key: 'im', file: 'im/input_01.txt', label: '120 digits' },
+  { key: 'im', file: 'im/input_02.txt', label: '180 digits' },
+  { key: 'im', file: 'im/input_03.txt', label: '250 digits' },
+  { key: 'im', file: 'im/input_04.txt', label: '320 digits' },
+  { key: 'im', file: 'im/input_05.txt', label: '400 digits' },
+  { key: 'im', file: 'im/input_06.txt', label: '500 digits' },
+  { key: 'im', file: 'im/input_07.txt', label: '650 digits' },
+  { key: 'im', file: 'im/input_08.txt', label: '800 digits' },
+  { key: 'im', file: 'im/input_09.txt', label: '1000 digits' },
+  { key: 'im', file: 'im/input_10.txt', label: '1200 digits' },
+];
